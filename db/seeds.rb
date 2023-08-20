@@ -29,4 +29,4 @@ recipe_two = user_two.recipes.create!(
 # Ingredient ownerships
 ownership1 = IngredientOwnership.create(user: user_one, ingredient: ingredient_one, user_quantity: 50)
 ownership2 = IngredientOwnership.create(user: user_two, ingredient: ingredient_two, user_quantity: 5)
-ownership3 = IngredientOwnership.create(user: user_two, recipe: recipe_one ,ingredient: ingredient_three, user_quantity: 2, recipe_quantity: 1)
+ownership3 = IngredientOwnership.create(user: user_two, recipe: recipe_one , ingredient: ingredient_three, recipe_quantity: 1)
