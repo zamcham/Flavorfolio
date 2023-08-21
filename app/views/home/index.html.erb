@@ -1,0 +1,21 @@
+<%= render 'hero_home' %>
+<Section class='public-recipe-list'>
+    <h4>Public Recipe List</h4>
+    <% @recipes.each do |recipe| %>
+        <div class='recipe-card'>
+            <div class='recipe-card-photo'>
+                <%= image_tag recipe.photo, class: 'recipe-photo', alt: 'recipe cover image' %>
+            </div>
+            <div class='recipe-card-header'>
+                <%= link_to recipe.name, user_recipe_path(recipe.user.id, recipe.id) %>
+            </div>
+            <div class='recipe-card-info'>
+                <p>Preparation time: 0min</p>
+                <p>Ingredients Needed: 0</p>
+            </div>
+            <div class='recipe-actions'>
+                <p>Rating: 0</p>
+            </div>
+        </div>
+    <% end %>
+</Section>
