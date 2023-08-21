@@ -12,15 +12,17 @@
   </head>
 
   <body>
-    <div class="navbar">
-      <h4>Flavorfolio</h4>
-      <% if user_signed_in? %>
-        <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= link_to "Sign In", new_user_session_path %>
-        <%= link_to "Sign Up", new_user_registration_path %>
-      <% end %>
-    </div>
+    <nav class="navbar">
+      <%= image_tag 'flavorfoliologo.png', class: 'navbarlogo', alt: 'Flavorfolio' %>
+      <div class='navbar-buttons'>
+        <% if user_signed_in? %>
+          <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to "Sign In", new_user_session_path %>
+          <%= link_to "Sign Up", new_user_registration_path %>
+        <% end %>
+      </div>
+    </nav>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>

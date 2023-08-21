@@ -24,8 +24,17 @@
  }
  body {
 
-    .navbar {
-        width: 100%;
-        background-color: aqua;
-    }
+   .navbar {
+      height: 80px;
+      background-color: aqua;
+      padding: 0 5vw ;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .navbarlogo {
+         height: 60px;  
+         width: auto;    
+      }
+   }
  }
