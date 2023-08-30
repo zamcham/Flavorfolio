@@ -13,6 +13,9 @@
  *= require_tree .
  *= require_self
  */
+ @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Karla:wght@200;300;400;500;600&display=swap');
+ $yellow: #FF9E0B;
 
  html {
     font-size: 62.5%;
@@ -23,18 +26,123 @@
     padding: 0;
  }
  body {
+   position: relative;
+   padding-top: 100px;
+
+   .ph-10vw {
+      padding-left: 10vw;
+      padding-right: 10vw;
+   }
+
+   .yellow-text {
+      color: $yellow;
+   }
+
+   .y-button {
+      background: linear-gradient(#FF9E0B, #e88e08);;
+      width: 100px;
+      height: 30px;
+      padding: 5px;
+      color: white;
+      border-radius: 5px;
+      font-size: 1.5rem;
+      font-family: 'Karla', sans-serif;
+      text-transform: uppercase;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 500;
+
+      a {
+         text-decoration: none;
+         background: none;
+      }
+   }
+
+   .y-button:hover {
+      cursor: pointer;
+      background: $yellow;
+   }
+
+   .t-button {
+      color: black;
+      width: 100px;
+      height: 30px;
+      padding: 5px;
+      background: none;
+      font-size: 1.5rem;
+      font-family: 'Karla', sans-serif;
+      text-transform: uppercase;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 500;
+
+      a {
+         text-decoration: none;
+         background: none;
+      }
+   }
+
+   .t-button:hover {
+      cursor: pointer;
+      color: $yellow;
+   }
 
    .navbar {
+      position: absolute;
+      top: 0;
       height: 80px;
-      background-color: aqua;
-      padding: 0 5vw ;
+      width: 80vw;
+      background-color: transparent;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      z-index: 5;
 
       .navbarlogo {
          height: 60px;  
          width: auto;    
+      }
+   }
+
+   .hero {
+      height: 50vh;
+      width: 50vw;
+      padding-top: 25vh;
+
+      #bg-1 {
+         position: absolute;
+         top: 0;
+         right: 0;
+         z-index: -1;
+         height: 100vh;
+      }
+
+      h1,
+      h2 {
+         font-family: 'Lato', sans-serif;
+         font-weight: 900;
+         text-transform: uppercase;
+         font-size: 4rem;
+      }
+      
+      .hero-headings {
+         margin: 2.5vh 0;
+      }
+
+      p {
+         font-family: 'Karla', sans-serif;
+         font-weight: 400;
+         font-size: 1.8rem;
+         margin: 2.5vh 0;
+         color: gray;
+      }
+
+      .buttons {
+         display: flex;
+         align-items: center;
+         margin: 2.5vh 0;
       }
    }
  }

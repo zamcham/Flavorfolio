@@ -1,3 +1,26 @@
-<Section class='hero'>
-<h4>Hero Section</h4>
+<Section class='hero ph-10vw'>
+    <%= image_tag 'bgHero.svg', id: 'bg-1' %>
+    <div class='l-hero'>
+        <div class='text'>
+            <div class='hero-headings'>
+                <h1>Unlock Your Culinary<br>Creativity with</h1>
+                <h2 class='yellow-text'>Flavorfolio</h2>
+            </div>
+            <p> Your ultimate kitchen partner for a world of culinary excellence. Whether you're a seasoned chef or just starting your culinary journey, Flavorfolio is here to elevate your cooking experience. </p>
+        </div>
+        <div class='buttons'>
+            <% if user_signed_in? %>
+                <div class='y-button'>
+                  <%= link_to 'Create a Recipe', new_recipe_path %>
+                </div>
+            <% else %>
+                <div class='y-button'>
+                    <%= link_to 'Login', new_user_session_path, class: "y-button" %>
+                </div>
+                <div class='t-button'>
+                    <%= link_to 'Sign Up', new_user_registration_path, class: "t-button" %>
+                </div>
+            <% end %>
+        </p>
+    </div>
 </Section>
