@@ -107,16 +107,31 @@
    }
 
    .hero {
-      height: 50vh;
+      height: 60vh;
       width: 50vw;
-      padding-top: 25vh;
+      padding-top: 20vh;
+
+      .l-hero {
+         width: 70%;
+      }
+
+      #bg-1,
+      #bg-2 {
+         position: absolute;
+      }
 
       #bg-1 {
-         position: absolute;
+         z-index: -5;
+         height: 100vh;
          top: 0;
          right: 0;
+      }
+
+      #bg-2 {
          z-index: -1;
-         height: 100vh;
+         height: 70vh;
+         top: 15vh;
+         right: 15vh;
       }
 
       h1,
