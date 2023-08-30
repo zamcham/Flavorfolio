@@ -1,6 +1,7 @@
 <%= render 'hero_home' %>
-<Section class='public-recipe-list'>
+<Section class='public-recipe-list ph-10vw'>
     <h4 class="title-heading">Public Recipe List</h4>
+    <div class="cards-container">
     <% @recipes.each do |recipe| %>
         <div class='recipe-card'>
             <div class='recipe-card-photo'>
@@ -18,4 +19,5 @@
             </div>
         </div>
     <% end %>
+    </div>
 </Section>

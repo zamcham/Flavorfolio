@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@200;300;400;500;600&display=swap');
+$yellow: #FF9E0B;
+
+.public-recipe-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .title-heading {
+        font-family: 'Lato', sans-serif;
+        font-weight: 900;
+        font-size: 2rem;
+        text-transform: uppercase;
+    }
+
+    .cards-container {
+        display: flex;
+        background-color: aquamarine;
+
+        .recipe-card {
+            width: 15vw;
+        }
+
+        .recipe-card-photo {
+            width: 100%;
+
+            .recipe-photo {
+                width: 100px;
+                height: auto;
+            }
+        }
+        
+    }
+}
