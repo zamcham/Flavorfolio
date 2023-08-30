@@ -2,6 +2,7 @@ source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.0.0"
+gem 'bootstrap', '~> 5.3.1'
 gem 'devise'
 gem 'font-awesome-sass', '~> 6.4.2'
 gem 'sass-rails', '~> 6.0'
