@@ -12,7 +12,7 @@ $light-gray: #e7e7e7;
     .title-heading {
         font-family: 'Lato', sans-serif;
         font-weight: 900;
-        font-size: 2rem;
+        font-size: 2.5rem;
         text-transform: uppercase;
         margin-bottom: 20vh;
     }
@@ -28,6 +28,7 @@ $light-gray: #e7e7e7;
             border-radius: 15px;
             height: 300px;
             width: 250px;
+            min-width: 200px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -73,6 +74,7 @@ $light-gray: #e7e7e7;
                 display: flex;
                 font-size: 1.3rem;
                 width: 80%;
+                font-family: 'Karla', 'sans-serif';
 
                 * {
                     flex-grow: 1;
@@ -87,9 +89,16 @@ $light-gray: #e7e7e7;
                 font-size: 1.5rem;
                 width: 80%;
                 margin: 15px auto;
+                font-family: 'Karla', 'sans-serif';
+                font-weight: 500;
+
+                p {
+                    font-weight: 500;
+                }
 
                 i {
                     font-size: 2.5rem;
+                    color: $yellow;
                 }
             }
 
@@ -101,6 +110,10 @@ $light-gray: #e7e7e7;
             cursor: pointer;
 
             a {
+                color: white;
+            }
+
+            i {
                 color: white;
             }
         }
