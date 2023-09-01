@@ -37,7 +37,7 @@ $light-gray: #e7e7e7;
                 top: -75px;
                 left: 50%;
                 transform: translateX(-50%);
-    
+
                 .recipe-photo {
                     width: 150px;
                     height: auto;
@@ -48,6 +48,10 @@ $light-gray: #e7e7e7;
             }
 
             .recipe-card-header {
+                width: 80%;
+                display: flex;
+                justify-content: center;
+                margin: 15px auto;
                 margin-top: 120px;
                 font-family: 'Karla', sans-serif;
                 text-transform: capitalize;
@@ -58,6 +62,26 @@ $light-gray: #e7e7e7;
                     font-size: 1.8rem;
                     font-weight: 600;
                 }
+            }
+
+            hr {
+              width: 80%;  
+              margin: 7.5px auto;
+            }
+
+            .recipe-card-info {
+                display: flex;
+                font-size: 1.3rem;
+                width: 80%;
+
+                * {
+                    flex-grow: 1;
+                    text-align: center;
+                }
+            }
+
+            .recipe-actions {
+                
             }
 
         }

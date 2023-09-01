@@ -10,12 +10,16 @@
                 <div class='recipe-card-header'>
                     <%= link_to recipe.name, user_recipe_path(recipe.user.id, recipe.id) %>
                 </div>
+                <hr class='separator'>
                 <div class='recipe-card-info'>
-                    <p>Preparation time: 0min</p>
-                    <p>Ingredients Needed: 0</p>
+                    <p>0 min</p>
+                    <i class="fa-solid fa-star"></i>
+                    <p>0 Ingr</p>
                 </div>
+                <hr class='separator'>
                 <div class='recipe-actions'>
                     <p>Rating: 0</p>
+                    <i class="fa-solid fa-heart-circle-plus"></i>
                 </div>
             </div>
         <% end %>
