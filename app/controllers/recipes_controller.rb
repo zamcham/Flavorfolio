@@ -1,7 +1,12 @@
 class RecipesController < ApplicationController
   def index
+    @recipes = current_user.recipes
   end
 
+  def new
+    @recipe = Recipe.new
+  end
+  
   def show
     user_id = params[:user_id]
     recipe_id = params[:id]

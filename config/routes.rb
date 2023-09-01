@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :users, only: [] do
-    resources :recipes, only: [:index, :show]
+    resources :recipes, only: [:new, :create, :index, :show]
   end
 end
