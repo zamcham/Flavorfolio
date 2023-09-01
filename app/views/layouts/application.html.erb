@@ -7,12 +7,13 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "publicRecipes", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   </head>
 
   <body>
-    <nav class="navbar">
+    <nav class="navbar ph-10vw">
       <%= image_tag 'flavorfoliologo.png', class: 'navbarlogo', alt: 'Flavorfolio' %>
       <div class='navbar-buttons'>
         <% if user_signed_in? %>
