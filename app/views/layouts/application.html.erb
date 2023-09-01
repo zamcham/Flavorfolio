@@ -17,10 +17,10 @@
       <%= image_tag 'flavorfoliologo.png', class: 'navbarlogo', alt: 'Flavorfolio' %>
       <div class='navbar-buttons'>
         <% if user_signed_in? %>
-          <%= button_to "Sign Out", destroy_user_session_path, method: :delete %>
+          <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: 'navButton' %>
         <% else %>
-          <%= link_to "Sign In", new_user_session_path %>
-          <%= link_to "Sign Up", new_user_registration_path %>
+          <%= link_to "Sign In", new_user_session_path, class: 'navButton' %>
+          <%= link_to "Sign Up", new_user_registration_path, class: 'navButton' %>
         <% end %>
       </div>
     </nav>
