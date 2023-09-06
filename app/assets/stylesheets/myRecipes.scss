@@ -4,10 +4,11 @@ $yellow: #FF9E0B;
 $green: #88BA3E;
 $light-gray: #e7e7e7;
 
-.public-recipe-list {
+.private-recipe-list {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 20vh;
 
     .title-heading {
         font-family: 'Lato', sans-serif;
@@ -66,8 +67,8 @@ $light-gray: #e7e7e7;
             }
 
             hr {
-                width: 80%;  
-                margin: 7.5px auto;
+              width: 80%;  
+              margin: 7.5px auto;
             }
 
             .recipe-card-info {
@@ -121,4 +122,3 @@ $light-gray: #e7e7e7;
 
     }
 }
-
