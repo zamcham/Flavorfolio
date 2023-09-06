@@ -15,7 +15,9 @@
 
   <body>
     <nav class="navbar ph-10vw">
-      <%= image_tag 'flavorfoliologo.png', class: 'navbarlogo', alt: 'Flavorfolio' %>
+      <%= link_to root_path do %>
+        <%= image_tag 'flavorfoliologo.png', class: 'navbarlogo', alt: 'Flavorfolio' %>
+      <% end %>
       <div class='navbar-buttons'>
         <% if user_signed_in? %>
           <%= link_to "My Recipes", user_recipes_path(current_user.id), class: 'navButton' %>
