@@ -4,5 +4,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [] do
     resources :recipes, only: [:new, :create, :index, :show]
+    member do
+      post 'toggle_visibility'
+    end
   end
 end
