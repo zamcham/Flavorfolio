@@ -23,17 +23,8 @@
             <button>Generate Shopping List</button>
             <% if user_signed_in? %>
               <button>Delete Recipe</button>
-                <%= form_with(model: @recipe, url: toggle_visibility_user_recipe_path(current_user, @recipe), local: true, method: :post, class: 'toggle-visibility-form') do |f| %>
-                    <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="publicToggle" <%= @recipe.public? ? 'checked' : '' %>>
-                    <label class="form-check-label" for="publicToggle">
-                        <%= @recipe.public? ? 'Public' : 'Private' %>
-                    </label>
-                    <%= f.hidden_field :public, value: !@recipe.public? %>
-                    </div>
-                <% end %>
+              <button>Set as public</button>
             <% end %>
         </div>
-
     </div>
 </Section>
