@@ -1,0 +1,16 @@
+<section class='container ph-10vw'>
+    <h1 class='text-center'>Ingredients</h1>
+    <div class='row'>
+        <% @ingredients.each do |ingredient| %>
+        <div class='col-12 col-md-6 col-lg-4'>
+            <div class='card'>
+            <div class='card-body'>
+                <h5 class='card-title'><%= ingredient.name %></h5>
+                <p class='card-text'><%= ingredient.description %></p>
+                <a href='<%= ingredient_path(ingredient) %>' class='btn btn-primary'>Show</a>
+            </div>
+            </div>
+        </div>
+        <% end %>
+    </div>
+</section>
