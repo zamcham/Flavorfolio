@@ -20,7 +20,7 @@
             </ul>
         </div>
         <div class='actions'>
-            <% if user_signed_in? %>
+            <% if user_signed_in? && current_user == @recipe.user %>
                 <%= form_with(model: @recipe, url: user_recipe_path(current_user, @recipe), method: :delete, data: { confirm: 'Are you sure?' }) do |f| %>
                     <%= f.button "Delete Recipe", class: 'delete-recipe-button' %>
                 <% end %>
