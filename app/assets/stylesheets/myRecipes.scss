@@ -7,8 +7,12 @@ $light-gray: #F2F2F2;
 .private-recipe-list {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     margin-top: 20vh;
+
+    .add-container {
+        margin-bottom: 5vh;
+    }
 
     .title-heading {
         font-family: 'Lato', sans-serif;

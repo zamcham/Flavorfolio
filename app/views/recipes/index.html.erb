@@ -1,4 +1,9 @@
 <Section class="private-recipe-list ph-10vw">
+    <div class="add-container">
+        <div class='y-button'>
+            <%= link_to 'Add Recipe', new_user_recipe_path(current_user), class: "y-button" %>
+        </div>
+    </div>
     <div class="cards-grid-container">
         <% @recipes.each do |recipe| %>
             <div class='recipe-card'>
