@@ -8,4 +8,20 @@ class IngredientsOwnershipController < ApplicationController
         @ingredient_ownership = current_user.ingredient_ownerships.build
         @ingredients = Ingredient.all
     end
+
+    def create
+        @ingredient_ownership = current_user.ingredient_ownerships.build(ingredient_ownership_params)
+    
+        if @ingredient_ownership.save
+          # Handle successful creation, e.g., redirect or respond with JSON
+        else
+          # Handle validation errors, e.g., render the form again
+        end
+    end
+
+    private
+
+    def ingredient_ownership_params
+        params.require(:ingredient_ownership).permit(:ingredient_id, :user_quantity)
+    end
 end
