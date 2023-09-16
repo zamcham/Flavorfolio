@@ -1,7 +1,7 @@
 <section class='ph-10vw'>
   <h1 class='text-center'>Add an Ingredient to your stock</h1>
   <!-- Dropdown for selecting an ingredient -->
-  <%= form_with model: @ingredient_ownership, url: user_ingredients_path(current_user), method: :post, remote: true do |f| %>
+  <%= form_with model: @ingredient_ownership, url: user_ingredients_path(current_user), method: :post, id: 'ingredient-form'  do |f| %>
     <%= f.collection_select :ingredient_id, @ingredients, :id, :name, prompt: 'Select an ingredient', id: 'ingredient-dropdown' %>
 
     <!-- Quantity field (hidden by default) -->
@@ -11,13 +11,13 @@
 
     <!-- Add button (hidden by default) -->
     <div id="add-button" style="display: none;">
-      <%= f.submit 'Add', class: 'btn btn-primary' %>
+      <%= f.submit 'Add', class: 'btn btn-primary', onclick: addIngredient() %>
     </div>
   <% end %>
 </section>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  const dropdown = document.getElementById('ingredient-dropdown');
+  const dropdown = document.getElementById('ingredient_ownership_ingredient_id');
   const quantityField = document.getElementById('quantity-field');
   const addButton = document.getElementById('add-button');
 
@@ -31,4 +31,18 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
+function addIngredient() {
+  const form = document.getElementById('ingredient-form');
+  const dropdown = document.getElementById('ingredient_ownership_ingredient_id');
+  const quantityField = document.getElementById('quantity-field');
+
+  // Check if a dropdown option is selected and a quantity is provided
+  if (dropdown.value && quantityField.value) {
+    // Submit the form
+    form.submit();
+  } else {
+    console.log('Please select an ingredient and provide a quantity');
+  }
+}
 </script>
