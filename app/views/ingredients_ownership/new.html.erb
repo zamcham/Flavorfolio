@@ -11,7 +11,7 @@
 
     <!-- Add button (hidden by default) -->
     <div id="add-button" style="display: none;">
-      <%= f.submit 'Add', class: 'btn btn-primary', onclick: addIngredient() %>
+      <%= f.submit 'Add', class: 'btn btn-primary'%>
     </div>
   <% end %>
 </section>
@@ -31,18 +31,4 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
-
-function addIngredient() {
-  const form = document.getElementById('ingredient-form');
-  const dropdown = document.getElementById('ingredient_ownership_ingredient_id');
-  const quantityField = document.getElementById('quantity-field');
-
-  // Check if a dropdown option is selected and a quantity is provided
-  if (dropdown.value && quantityField.value) {
-    // Submit the form
-    form.submit();
-  } else {
-    console.log('Please select an ingredient and provide a quantity');
-  }
-}
 </script>

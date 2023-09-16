@@ -15,7 +15,7 @@ class IngredientsOwnershipController < ApplicationController
         if @ingredient_ownership.save
           # Handle successful creation, e.g., redirect or respond with JSON
         else
-          # Handle validation errors, e.g., render the form again
+          puts @ingredient_ownership.errors.full_messages
         end
     end
 
