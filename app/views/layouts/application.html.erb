@@ -8,19 +8,27 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "publicRecipes", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "myRecipes", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "recipeDetails", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   </head>
 
   <body>
     <nav class="navbar ph-10vw">
-      <%= image_tag 'flavorfoliologo.png', class: 'navbarlogo', alt: 'Flavorfolio' %>
+      <div class='navbar-buttons'>
+        <%= link_to root_path do %>
+          <%= image_tag 'flavorfoliologo.png', class: 'navbarlogo', alt: 'Flavorfolio' %>
+        <% end %>
+      </div>
       <div class='navbar-buttons'>
         <% if user_signed_in? %>
-          <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+          <%= link_to "My Recipes", user_recipes_path(current_user.id), class: 'navButton' %>
+          <%= link_to "My Ingredients", user_ingredients_path(current_user.id), class: 'navButton'  %>
+          <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: 'navButton' %>
         <% else %>
-          <%= link_to "Sign In", new_user_session_path %>
-          <%= link_to "Sign Up", new_user_registration_path %>
+          <%= link_to "Sign In", new_user_session_path, class: 'navButton' %>
+          <%= link_to "Sign Up", new_user_registration_path, class: 'navButton' %>
         <% end %>
       </div>
     </nav>

@@ -12,7 +12,7 @@
         <div class='buttons'>
             <% if user_signed_in? %>
                 <div class='y-button'>
-                  <%= link_to 'Create a Recipe', new_recipe_path %>
+                  <%= link_to 'Add Recipe', new_user_recipe_path(current_user), class: "y-button" %>
                 </div>
             <% else %>
                 <div class='y-button'>

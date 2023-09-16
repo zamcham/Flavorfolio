@@ -1,0 +1,2 @@
+module IngredientsOwnershipHelper
+end

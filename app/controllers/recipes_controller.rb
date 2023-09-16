@@ -1,7 +1,12 @@
 class RecipesController < ApplicationController
   def index
+    @recipes = current_user.recipes
   end
 
+  def new
+    @recipe = Recipe.new
+  end
+  
   def show
     user_id = params[:user_id]
     recipe_id = params[:id]
@@ -14,5 +19,27 @@ class RecipesController < ApplicationController
     else
       render 'show'
     end
+  end
+
+  def create
+    @recipe = current_user.recipes.build(recipe_params)
+
+    if @recipe.save
+      redirect_to user_recipe_path(current_user, @recipe), notice: "Recipe created successfully."
+    else
+      render :new
+    end
+  end
+
+  def destroy
+    @recipe = Recipe.find(params[:id])
+    @recipe.destroy
+    redirect_to root_path, notice: 'Recipe deleted successfully.'
+  end
+
+  private
+
+  def recipe_params
+    params.require(:recipe).permit(:name, :description, :preparation_time, :cooking_time, :public)
   end
 end

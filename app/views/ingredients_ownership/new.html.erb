@@ -1,0 +1,34 @@
+<section class='ph-10vw'>
+  <h1 class='text-center'>Add an Ingredient to your stock</h1>
+  <!-- Dropdown for selecting an ingredient -->
+  <%= form_with model: @ingredient_ownership, url: user_ingredients_path(current_user), method: :post, id: 'ingredient-form'  do |f| %>
+    <%= f.collection_select :ingredient_id, @ingredients, :id, :name, prompt: 'Select an ingredient', id: 'ingredient-dropdown' %>
+
+    <!-- Quantity field (hidden by default) -->
+    <div id="quantity-field" style="display: none;">
+      <%= f.number_field :user_quantity, step: 0.01, placeholder: 'Quantity', required: true %>
+    </div>
+
+    <!-- Add button (hidden by default) -->
+    <div id="add-button" style="display: none;">
+      <%= f.submit 'Add', class: 'btn btn-primary'%>
+    </div>
+  <% end %>
+</section>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const dropdown = document.getElementById('ingredient_ownership_ingredient_id');
+  const quantityField = document.getElementById('quantity-field');
+  const addButton = document.getElementById('add-button');
+
+  dropdown.addEventListener('change', function() {
+    if (dropdown.value) {
+      quantityField.style.display = 'block';
+      addButton.style.display = 'block';
+    } else {
+      quantityField.style.display = 'none';
+      addButton.style.display = 'none';
+    }
+  });
+});
+</script>

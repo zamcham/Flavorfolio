@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@200;300;400;500;600&display=swap');
+$yellow: #FF9E0B;
+$green: #88BA3E;
+$light-gray: #f2f2f2;
+
+.recipe-page {
+   display: flex;
+   height: 70vh;
+
+   .recipe-page-details {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        font-size: 1.5rem;
+        font-family: 'Karla', sans-serif;
+
+        .recipe-details {
+            flex: 1;
+            display: flex;
+
+            .recipe-name {
+                margin-right: 0.5rem;
+                color: $green;
+            }
+        }
+
+        img {
+            flex: 1;
+            height: 50%;
+            width: 50%;
+        }
+
+   }
+
+   .recipe-page-instructions {
+    flex: 1;
+    background-color: $light-gray;
+   }
+}

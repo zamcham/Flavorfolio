@@ -1,0 +1,15 @@
+<section class='container ph-10vw'>
+    <h1 class='text-center'>Ingredients</h1>
+    <!-- show ingrediets assigned to the user id, if no ingredients, show 'add' button -->
+    <% if @ingredients.any? %>
+        <ul>
+            <% @ingredients.each do |ingredient| %>
+                <li><%= ingredient.name %></li>
+            <% end %>
+        </ul>
+    <% else %>
+        <div class='y-button'>
+            <%= link_to 'Add Ingredient', new_user_ingredient_path(current_user), class: "y-button" %>
+        </div>
+    <% end %>
+</section>

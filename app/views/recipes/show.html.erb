@@ -1,14 +1,35 @@
-<Section class='recipe-page'>
+<Section class='recipe-page ph-10vw'>
     <div class='recipe-page-details'>
         <%= image_tag @recipe.photo, alt: 'recipe photo' %>
-        <p> <%= @recipe.description %> </p>
+        <div class='recipe-details'>
+            <h4 class='recipe-name'><%= @recipe.name %>:</h4>
+            <p> <%= @recipe.description %></p>
+        </div>
     </div>
     <div class='recipe-page-instructions'>
-        <h3>Ingredients</h3>
-        <ul>
-            <% @recipe.ingredients.each do |ingredient| %>
-                <li><%= ingredient.name %></li>
+        <div class='instructions'>
+            <h3>Instructions</h3>
+            <p>instructions</p>
+        </div>
+        <div class='ingredients'>
+            <h3>Ingredients</h3>
+            <ul>
+                <% @recipe.ingredients.each do |ingredient| %>
+                    <li><%= ingredient.name %></li>
+                <% end %>
+            </ul>
+        </div>
+        <div class='actions'>
+            <% if user_signed_in? && current_user == @recipe.user %>
+                <%= form_with(model: @recipe, url: user_recipe_path(current_user, @recipe), method: :delete, data: { confirm: 'Are you sure?' }) do |f| %>
+                    <%= f.button "Delete Recipe", class: 'delete-recipe-button' %>
+                <% end %>
+              <button>Generate Shopping List</button>
+                <label class="switch">
+                    <input type="checkbox" id="public-toggle" <%= @recipe.public ? 'checked' : '' %>>
+                    <span class="slider round"></span>
+                </label>
             <% end %>
-        </ul>
+        </div>
     </div>
 </Section>

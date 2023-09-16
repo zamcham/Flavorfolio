@@ -2,12 +2,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla:wght@200;300;400;500;600&display=swap');
 $yellow: #FF9E0B;
 $green: #88BA3E;
-$light-gray: #f2f2f2;
+$light-gray: #F2F2F2;
 
-.public-recipe-list {
+.private-recipe-list {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    margin-top: 5vh;
+
+    .add-container {
+        margin-bottom: 15vh;
+    }
 
     .title-heading {
         font-family: 'Lato', sans-serif;
@@ -66,8 +71,8 @@ $light-gray: #f2f2f2;
             }
 
             hr {
-                width: 80%;  
-                margin: 7.5px auto;
+              width: 80%;  
+              margin: 7.5px auto;
             }
 
             .recipe-card-info {
@@ -121,4 +126,3 @@ $light-gray: #f2f2f2;
 
     }
 }
-
