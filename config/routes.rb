@@ -4,9 +4,9 @@ Rails.application.routes.draw do
 
   resources :users, only: [] do
     resources :recipes, only: [:new, :create, :index, :show, :destroy]
-    resources :ingredients, controller: 'ingredients_ownership', only: [:index, :new, :edit, :update, :destroy]
     member do
       post 'toggle_visibility'
     end
+    resources :ingredients, controller: 'ingredients_ownership', only: [:index, :new, :edit, :update, :destroy]
   end
 end
