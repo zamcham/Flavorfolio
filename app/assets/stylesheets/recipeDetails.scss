@@ -17,10 +17,8 @@ $light-gray: #f2f2f2;
 
         .recipe-details {
             flex: 1;
-            display: flex;
 
             .recipe-name {
-                margin-right: 0.5rem;
                 color: $green;
             }
         }

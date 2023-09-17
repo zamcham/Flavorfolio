@@ -2,8 +2,7 @@
     <div class='recipe-page-details'>
         <%= image_tag @recipe.photo, alt: 'recipe photo' %>
         <div class='recipe-details'>
-            <h4 class='recipe-name'><%= @recipe.name %>:</h4>
-            <p> <%= @recipe.description %></p>
+                <p><span class="recipe-name"><%= @recipe.name + ':' %></span> <%= @recipe.description %></p>
         </div>
     </div>
     <div class='recipe-page-instructions'>
