@@ -24,29 +24,27 @@
                     <%= f.button "Delete Recipe", class: 'delete-recipe-button' %>
                 <% end %>
               <button>Generate Shopping List</button>
-                <div>
-                <%= form_with(model: @recipe, url: toggle_visibility_user_path(@current_user, @recipe), local: true, method: :post, class: 'toggle-visibility-form') do |f| %>
-                    <div>
-                    <input class="form-check-input" type="checkbox" id="publicToggle" <%= @recipe.public? ? 'checked' : '' %>>
+                <%= form_with(model: @recipe, url: toggle_visibility_user_recipe_path(current_user.id, @recipe), local: true, method: :post, class: 'toggle-visibility-form') do |f| %>
+                <div class="form-check form-switch">
+                    <input class="form-check-input toggle-switch" type="checkbox" id="publicToggle" <%= @recipe.public? ? 'checked' : '' %>>
                     <label class="form-check-label" for="publicToggle">
-                        <%= @recipe.public? ? 'Public' : 'Private' %>
+                    <span class="slider round"></span>
+                    <%= @recipe.public? ? 'Public' : 'Private' %>
                     </label>
                     <%= f.hidden_field :public, value: !@recipe.public? %>
-                    </div>
-                <% end %>
-
-                <script>
-                    document.addEventListener("DOMContentLoaded", function() {
-                    const toggleSwitch = document.querySelector("#publicToggle");
-                    const form = document.querySelector(".toggle-visibility-form");
-
-                    toggleSwitch.addEventListener("change", function() {
-                        form.submit();
-                    });
-                    });
-                </script>
                 </div>
+                <% end %>
             <% end %>
         </div>
     </div>
 </Section>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const toggleSwitch = document.querySelector(".toggle-switch");
+  const form = document.querySelector(".toggle-visibility-form");
+
+  toggleSwitch.addEventListener("change", function() {
+    form.submit();
+  });
+});
+</script>
