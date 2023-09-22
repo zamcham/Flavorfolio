@@ -1,21 +1,23 @@
 class IngredientsOwnershipController < ApplicationController
     def index
         user_id = params[:user_id]
-        @ingredients = IngredientOwnership.where(user_id: user_id)
+        @ingredients_owned = IngredientOwnership.where(user_id: user_id)
     end
 
     def new
-        @ingredient_ownership = current_user.ingredient_ownerships.build
+        @ingredient_ownership = IngredientOwnership.new
         @ingredients = Ingredient.all
     end
 
     def create
-        @ingredient_ownership = current_user.ingredient_ownerships.build(ingredient_ownership_params)
+        @ingredient_ownership = IngredientOwnership.new(ingredient_ownership_params)
+        @ingredient_ownership.user = current_user
     
         if @ingredient_ownership.save
-          # Handle successful creation, e.g., redirect or respond with JSON
+          redirect_to user_ingredients_path(current_user), notice: 'Ingredient added to your stock successfully.'
         else
-          puts @ingredient_ownership.errors.full_messages
+          @ingredients = Ingredient.all
+          render 'new'
         end
     end
 

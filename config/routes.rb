@@ -9,6 +9,6 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :ingredients, controller: 'ingredients_ownership', only: [:index, :new, :edit, :update, :destroy]
+    resources :ingredients, controller: 'ingredients_ownership', only: [:index, :new, :edit, :update, :destroy, :create]
   end
 end
