@@ -12,11 +12,15 @@
         </div>
         <div class='ingredients'>
             <h3>Ingredients</h3>
+            <% if @recipe.ingredients.any? %>
             <ul>
                 <% @recipe.ingredients.each do |ingredient| %>
                     <li><%= ingredient.name %></li>
                 <% end %>
             </ul>
+            <% else %>
+                <p>No ingredients specified</p>
+            <% end %>
         </div>
         <div class='actions'>
             <% if user_signed_in? && current_user == @recipe.user %>
