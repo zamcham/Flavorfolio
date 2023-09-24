@@ -6,10 +6,6 @@
         </div>
     </div>
     <div class='recipe-page-instructions'>
-        <div class='instructions'>
-            <h3>Instructions</h3>
-            <p>instructions</p>
-        </div>
         <div class='ingredients'>
             <h3>Ingredients</h3>
             <% if @recipe.ingredients.any? %>
@@ -21,6 +17,10 @@
             <% else %>
                 <p>No ingredients specified</p>
             <% end %>
+        </div>
+        <div class='instructions'>
+            <h3>Instructions</h3>
+            <p>instructions</p>
         </div>
         <div class='actions'>
             <% if user_signed_in? && current_user == @recipe.user %>
