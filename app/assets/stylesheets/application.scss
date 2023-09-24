@@ -225,7 +225,8 @@
       }
    }
 
-   .login-page {
+   .login-page,
+   .new-recipe-page {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -316,6 +317,37 @@
          }
       }
       
+   }
+
+   .new-recipe-page {
+
+      .new_recipe {
+
+         display: flex !important;
+         align-items: flex-start !important;
+         justify-content: flex-start !important;
+
+
+         .field {
+            display: flex;
+            flex-direction: column !important;
+            align-items: flex-start !important;
+
+            label {
+               margin: 0 !important;
+            }
+
+            input,
+            textarea {
+               width: 300px !important;
+            }
+
+            textarea {
+               height: 50px;
+            }
+   
+         }
+      }
    }
 
  }
