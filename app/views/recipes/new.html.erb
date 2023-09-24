@@ -30,11 +30,16 @@
       </div>
 
       <div class="field">
+        <%= f.label :ingredients %>
+        <%= f.collection_select :ingredient_ids, Ingredient.all, :id, :name, {}, { multiple: true } %>
+      </div>
+
+      <div class="field">
         <%= f.label :public %>
         <%= f.check_box :public %>
       </div>
 
-      <div class="actions">
+      <div class="actions y-button">
         <%= f.submit "Create Recipe" %>
       </div>
     <% end %>
