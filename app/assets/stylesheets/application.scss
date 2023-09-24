@@ -118,6 +118,15 @@
       color: $yellow;
    }
 
+   .actions {
+      input {
+         background-color: transparent;
+         border: none;
+         color: white;
+         font-size: 1.5rem;
+      }
+   }
+
    .navbar {
       position: absolute;
       top: 0;
@@ -214,6 +223,25 @@
          align-items: center;
          margin: 2.5vh 0;
       }
+   }
+
+   .login-page {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .login-column-l,
+      .login-column-r {
+         flex: 1;
+      }
+
+      .login-column-l {
+         img {
+            width: 20%;
+            height: auto;
+         }
+      }
+      
    }
 
  }
