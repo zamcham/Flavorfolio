@@ -299,6 +299,22 @@
             border-radius: 20px;
          }
       }
+
+      .login-links {
+         font-family: 'Karla', sans-serif;
+         font-weight: 400;
+         font-size: 1.3rem;
+         margin: 2.5vh 0;
+         color: gray;
+
+         a {
+            color: gray;
+         }
+
+         a:hover {
+            color: $green;
+         }
+      }
       
    }
 
