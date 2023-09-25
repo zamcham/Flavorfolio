@@ -2,22 +2,25 @@
     <div class='recipe-page-details'>
         <%= image_tag @recipe.photo, alt: 'recipe photo' %>
         <div class='recipe-details'>
-            <h4 class='recipe-name'><%= @recipe.name %>:</h4>
-            <p> <%= @recipe.description %></p>
+                <p><span class="recipe-name"><%= @recipe.name + ':' %></span> <%= @recipe.description %></p>
         </div>
     </div>
     <div class='recipe-page-instructions'>
-        <div class='instructions'>
-            <h3>Instructions</h3>
-            <p>instructions</p>
-        </div>
         <div class='ingredients'>
             <h3>Ingredients</h3>
+            <% if @recipe.ingredients.any? %>
             <ul>
                 <% @recipe.ingredients.each do |ingredient| %>
                     <li><%= ingredient.name %></li>
                 <% end %>
             </ul>
+            <% else %>
+                <p>No ingredients specified</p>
+            <% end %>
+        </div>
+        <div class='instructions'>
+            <h3>Instructions</h3>
+            <p>instructions</p>
         </div>
         <div class='actions'>
             <% if user_signed_in? && current_user == @recipe.user %>
@@ -25,11 +28,27 @@
                     <%= f.button "Delete Recipe", class: 'delete-recipe-button' %>
                 <% end %>
               <button>Generate Shopping List</button>
-                <label class="switch">
-                    <input type="checkbox" id="public-toggle" <%= @recipe.public ? 'checked' : '' %>>
+                <%= form_with(model: @recipe, url: toggle_visibility_user_recipe_path(current_user.id, @recipe), local: true, method: :post, class: 'toggle-visibility-form') do |f| %>
+                <div class="form-check form-switch">
+                    <input class="form-check-input toggle-switch" type="checkbox" id="publicToggle" <%= @recipe.public? ? 'checked' : '' %>>
+                    <label class="form-check-label" for="publicToggle">
                     <span class="slider round"></span>
-                </label>
+                    <%= @recipe.public? ? 'Public' : 'Private' %>
+                    </label>
+                    <%= f.hidden_field :public, value: !@recipe.public? %>
+                </div>
+                <% end %>
             <% end %>
         </div>
     </div>
 </Section>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const toggleSwitch = document.querySelector(".toggle-switch");
+  const form = document.querySelector(".toggle-visibility-form");
+
+  toggleSwitch.addEventListener("change", function() {
+    form.submit();
+  });
+});
+</script>

@@ -3,10 +3,12 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :users, only: [] do
-    resources :recipes, only: [:new, :create, :index, :show, :destroy]
-    resources :ingredients, controller: 'ingredients_ownership', only: [:index, :new, :edit, :update, :destroy]
-    member do
-      post 'toggle_visibility'
+    resources :recipes, only: [:new, :create, :index, :show, :destroy] do
+      member do
+        post 'toggle_visibility'
+      end
     end
+
+    resources :ingredients, controller: 'ingredients_ownership', only: [:index, :new, :edit, :update, :destroy, :create]
   end
 end

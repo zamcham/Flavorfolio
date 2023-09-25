@@ -1,15 +1,18 @@
 <section class='container ph-10vw'>
-    <h1 class='text-center'>Ingredients</h1>
     <!-- show ingrediets assigned to the user id, if no ingredients, show 'add' button -->
-    <% if @ingredients.any? %>
+    <div class='y-button'>
+        <%= link_to 'Add Ingredient', new_user_ingredient_path(current_user), class: "y-button" %>
+    </div>
+    <% if @ingredients_owned.any? %>
         <ul>
-            <% @ingredients.each do |ingredient| %>
-                <li><%= ingredient.name %></li>
+            <% @ingredients_owned.each do |ingredient_owned| %>
+                <% ingredient = Ingredient.find_by(id: ingredient_owned.ingredient_id) %>
+                <li>
+                    <%= ingredient ? ingredient.name : 'Unknown Ingredient' %>
+                    -
+                    <%= ingredient_owned.user_quantity %>
+                </li>
             <% end %>
         </ul>
-    <% else %>
-        <div class='y-button'>
-            <%= link_to 'Add Ingredient', new_user_ingredient_path(current_user), class: "y-button" %>
-        </div>
     <% end %>
 </section>

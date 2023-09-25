@@ -1,16 +1,15 @@
 <section class='ph-10vw'>
   <h1 class='text-center'>Add an Ingredient to your stock</h1>
   <!-- Dropdown for selecting an ingredient -->
-  <%= form_with model: @ingredient_ownership, url: user_ingredients_path(current_user), method: :post, id: 'ingredient-form'  do |f| %>
-    <%= f.collection_select :ingredient_id, @ingredients, :id, :name, prompt: 'Select an ingredient', id: 'ingredient-dropdown' %>
-
-    <!-- Quantity field (hidden by default) -->
-    <div id="quantity-field" style="display: none;">
+  <%= form_with model: @ingredient_ownership, url: user_ingredients_path(current_user), method: :post, id: 'ingredient-form' do |f| %>
+    <%= f.collection_select :ingredient_id, @ingredients, :id, :name, prompt: 'Select an ingredient', id: 'ingredient_ownership_ingredient_id' %>
+    <!-- Quantity field -->
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <div id="quantity-field">
       <%= f.number_field :user_quantity, step: 0.01, placeholder: 'Quantity', required: true %>
     </div>
-
-    <!-- Add button (hidden by default) -->
-    <div id="add-button" style="display: none;">
+    <!-- Add button -->
+    <div id="add-button">
       <%= f.submit 'Add', class: 'btn btn-primary'%>
     </div>
   <% end %>

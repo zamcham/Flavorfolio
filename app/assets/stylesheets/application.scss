@@ -30,6 +30,30 @@
    position: relative;
    padding-top: 100px;
 
+   .notice {
+      height: 80px;
+      background-color: $green;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 1.5rem;
+      font-family: 'Karla', sans-serif;
+      font-weight: 500;
+   }
+
+   .alert {
+      height: 80px;
+      background-color: red;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 1.5rem;
+      font-family: 'Karla', sans-serif;
+      font-weight: 500;
+   }
+
    .ph-10vw {
       padding-left: 10vw;
       padding-right: 10vw;
@@ -92,6 +116,15 @@
    .t-button:hover {
       cursor: pointer;
       color: $yellow;
+   }
+
+   .actions {
+      input {
+         background-color: transparent;
+         border: none;
+         color: white;
+         font-size: 1.5rem;
+      }
    }
 
    .navbar {
@@ -189,6 +222,131 @@
          display: flex;
          align-items: center;
          margin: 2.5vh 0;
+      }
+   }
+
+   .login-page,
+   .new-recipe-page {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .login-column-l,
+      .login-column-r {
+         width: 100%;
+         flex: 1;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+
+         form {
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .field {
+               margin: 10px auto;
+   
+               label {
+                  font-family: 'Karla', sans-serif;
+                  font-weight: 400;
+                  font-size: 1.3rem;
+                  margin: 2.5vh 0;
+                  color: gray;
+               }
+   
+               input {
+                  height: 20px;
+                  font-size: 1.3rem;
+                  font-family: 'Karla', sans-serif;
+                  font-weight: 400;
+                  color: gray;
+               }
+   
+            }
+
+         }
+
+
+
+         .text {
+            h2 {
+               font-family: 'Lato', sans-serif;
+               font-weight: 700;
+               text-transform: uppercase;
+               font-size: 2rem;
+               margin: 2.5vh 0;
+               margin-bottom: 0;
+            }
+
+            p {
+               font-family: 'Karla', sans-serif;
+               font-weight: 400;
+               font-size: 1.8rem;
+               margin: 2.5vh 0;
+               color: gray;
+               margin-top: 0;
+            }
+         }
+      }
+
+      .login-column-l {
+         img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+         }
+      }
+
+      .login-links {
+         font-family: 'Karla', sans-serif;
+         font-weight: 400;
+         font-size: 1.3rem;
+         margin: 2.5vh 0;
+         color: gray;
+
+         a {
+            color: gray;
+         }
+
+         a:hover {
+            color: $green;
+         }
+      }
+      
+   }
+
+   .new-recipe-page {
+
+      .new_recipe {
+
+         display: flex !important;
+         align-items: flex-start !important;
+         justify-content: flex-start !important;
+
+
+         .field {
+            display: flex;
+            flex-direction: column !important;
+            align-items: flex-start !important;
+
+            label {
+               margin: 0 !important;
+            }
+
+            input,
+            textarea {
+               width: 300px !important;
+            }
+
+            textarea {
+               height: 50px;
+            }
+   
+         }
       }
    }
 
