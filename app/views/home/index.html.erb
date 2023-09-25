@@ -14,7 +14,7 @@
                 <div class='recipe-card-info'>
                     <p><%= recipe.preparation_time + recipe.cooking_time %> min</p>
                     <i class="fa-solid fa-star"></i>
-                    <p>0 Ingr</p>
+                    <p><%= RecipeIngredient.where(recipe_id: recipe.id).count %> Ingr</p>
                 </div>
                 <hr class='separator'>
                 <div class='recipe-actions'>
