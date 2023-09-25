@@ -8,9 +8,9 @@
     <div class='recipe-page-instructions'>
         <div class='ingredients'>
             <h3>Ingredients</h3>
-            <% if @recipe.ingredients.any? %>
+            <% if @ingredients.any? %>
             <ul>
-                <% @recipe.ingredients.each do |ingredient| %>
+                <% @ingredients.each do |ingredient| %>
                     <li><%= ingredient.name %></li>
                 <% end %>
             </ul>

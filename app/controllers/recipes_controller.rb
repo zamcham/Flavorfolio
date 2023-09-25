@@ -11,7 +11,8 @@ class RecipesController < ApplicationController
     user_id = params[:user_id]
     recipe_id = params[:id]
 
-    @recipe = Recipe.find_by(id: recipe_id, user_id: user_id)
+    @recipe = Recipe.includes(:ingredients).find_by(id: recipe_id, user_id: user_id)
+    @ingredients = RecipeIngredient.where(recipe_id: @recipe.id).map(&:ingredient)
     @user = User.find_by(id: user_id)
 
     if @recipe.nil?
