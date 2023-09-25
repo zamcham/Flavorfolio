@@ -10,20 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_20_042519) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_25_231950) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "ingredient_ownerships", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "ingredient_id"
-    t.bigint "recipe_id"
-    t.decimal "user_quantity", precision: 10, scale: 2
-    t.decimal "recipe_quantity", precision: 10, scale: 2
+    t.decimal "quantity", precision: 10, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["ingredient_id"], name: "index_ingredient_ownerships_on_ingredient_id"
-    t.index ["recipe_id"], name: "index_ingredient_ownerships_on_recipe_id"
     t.index ["user_id"], name: "index_ingredient_ownerships_on_user_id"
   end
 
@@ -35,6 +32,22 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_20_042519) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "ingredients_recipes", id: false, force: :cascade do |t|
+    t.bigint "recipe_id", null: false
+    t.bigint "ingredient_id", null: false
+    t.index ["ingredient_id", "recipe_id"], name: "index_ingredients_recipes_on_ingredient_id_and_recipe_id"
+    t.index ["recipe_id", "ingredient_id"], name: "index_ingredients_recipes_on_recipe_id_and_ingredient_id"
+  end
+
+  create_table "recipe_ingredients", force: :cascade do |t|
+    t.bigint "recipe_id", null: false
+    t.bigint "ingredient_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ingredient_id"], name: "index_recipe_ingredients_on_ingredient_id"
+    t.index ["recipe_id"], name: "index_recipe_ingredients_on_recipe_id"
+  end
+
   create_table "recipes", force: :cascade do |t|
     t.string "name", limit: 50, null: false
     t.string "description", limit: 500, null: false
@@ -43,8 +56,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_20_042519) do
     t.boolean "public", default: false, null: false
     t.string "photo", default: "defaultRecipe.jpg", null: false
     t.bigint "user_id", null: false
+    t.bigint "ingredients_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["ingredients_id"], name: "index_recipes_on_ingredients_id"
     t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 
@@ -63,7 +78,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_20_042519) do
   end
 
   add_foreign_key "ingredient_ownerships", "ingredients"
-  add_foreign_key "ingredient_ownerships", "recipes"
   add_foreign_key "ingredient_ownerships", "users"
+  add_foreign_key "recipe_ingredients", "ingredients"
+  add_foreign_key "recipe_ingredients", "recipes"
+  add_foreign_key "recipes", "ingredients", column: "ingredients_id"
   add_foreign_key "recipes", "users"
 end

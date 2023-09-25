@@ -37,7 +37,7 @@ RecipeIngredient.create(recipe: recipe_two, ingredient: ingredient_five)
 RecipeIngredient.create(recipe: recipe_two, ingredient: ingredient_six)
 
 # Ingredient ownerships
-ownership1 = IngredientOwnership.create(user: user_one, ingredient: ingredient_one, user_quantity: 50)
-ownership2 = IngredientOwnership.create(user: user_two, ingredient: ingredient_two, user_quantity: 5)
-ownership3 = IngredientOwnership.create(user: user_two, recipe: recipe_one, ingredient: ingredient_three, recipe_quantity: 1)
-ownership4 = IngredientOwnership.create(user: user_one, ingredient: ingredient_seven, user_quantity: 2)  # User one owns Chicken Legs
+ownership1 = IngredientOwnership.create(user: user_one, ingredient: ingredient_one, quantity: 50)
+ownership2 = IngredientOwnership.create(user: user_two, ingredient: ingredient_two, quantity: 5)
+ownership3 = IngredientOwnership.create(user: user_two, ingredient: ingredient_three, quantity: 1)
+ownership4 = IngredientOwnership.create(user: user_one, ingredient: ingredient_seven, quantity: 2) 
