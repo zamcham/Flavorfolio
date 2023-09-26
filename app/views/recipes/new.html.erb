@@ -30,6 +30,11 @@
       </div>
 
       <div class="field">
+        <%= f.label :instructions %>
+        <%= f.text_area :instructions %>
+      </div>
+
+      <div class="field">
         <%= f.label :ingredients %>
         <%= f.collection_select :ingredient_ids, Ingredient.all, :id, :name, {}, { multiple: true } %>
       </div>
