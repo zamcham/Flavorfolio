@@ -9,7 +9,6 @@ class CreateRecipes < ActiveRecord::Migration[7.0]
       t.boolean :public, null: false, default: false
       t.string :photo, null: false, default: 'defaultRecipe.jpg'
       t.references :user, null: false, foreign_key: true
-      t.references :ingredients, foreign_key: true
 
       t.timestamps
     end
