@@ -51,6 +51,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_25_231950) do
   create_table "recipes", force: :cascade do |t|
     t.string "name", limit: 50, null: false
     t.string "description", limit: 500, null: false
+    t.string "instructions", limit: 500, null: false
     t.integer "preparation_time", null: false
     t.integer "cooking_time", null: false
     t.boolean "public", default: false, null: false

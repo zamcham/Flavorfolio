@@ -15,6 +15,7 @@ ingredient_seven = Ingredient.create!(name: 'Chicken Legs', measurement_unit: 'l
 recipe_one = user_one.recipes.create!(
   name: 'Pulled BBQ chicken',
   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+  instructions: 'Donec facilisis vel sem tempor ornare. In at quam sapien. Integer sollicitudin euismod massa, quis condimentum enim tincidunt vitae. Duis a ipsum accumsan, consectetur neque eu, ullamcorper dolor. Nullam sit amet semper dolor, id feugiat tellus. Nulla aliquam fermentum ullamcorper. Pellentesque sed nulla sem.',
   preparation_time: 35,
   cooking_time: 15,
   public: true,
@@ -24,6 +25,7 @@ recipe_one = user_one.recipes.create!(
 recipe_two = user_two.recipes.create!(
   name: 'Orange chicken',
   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aliquam nulla facilisi cras fermentum. Nunc sed id semper risus in.',
+  instructions: 'Donec facilisis vel sem tempor ornare. In at quam sapien. Integer sollicitudin euismod massa, quis condimentum enim tincidunt vitae. Duis a ipsum accumsan, consectetur neque eu, ullamcorper dolor. Nullam sit amet semper dolor, id feugiat tellus. Nulla aliquam fermentum ullamcorper. Pellentesque sed nulla sem.',
   preparation_time: 35,
   cooking_time: 15,
   public: true,
