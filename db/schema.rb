@@ -57,10 +57,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_25_231950) do
     t.boolean "public", default: false, null: false
     t.string "photo", default: "defaultRecipe.jpg", null: false
     t.bigint "user_id", null: false
-    t.bigint "ingredients_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["ingredients_id"], name: "index_recipes_on_ingredients_id"
     t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 
@@ -82,6 +80,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_25_231950) do
   add_foreign_key "ingredient_ownerships", "users"
   add_foreign_key "recipe_ingredients", "ingredients"
   add_foreign_key "recipe_ingredients", "recipes"
-  add_foreign_key "recipes", "ingredients", column: "ingredients_id"
   add_foreign_key "recipes", "users"
 end
